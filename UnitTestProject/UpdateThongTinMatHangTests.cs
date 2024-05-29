@@ -113,6 +113,25 @@ namespace UnitTestProject
             Assert.AreEqual(200000, updatedProduct2.thanhTien); // Ensure the total price is updated correctly
         }
 
-        
+        [TestMethod]
+        public void Test_UpdateThongTinMatHang_DuplicateUpdate()
+        {
+            // Arrange
+            ObservableCollection<ThongTinMatHang> listFood = new ObservableCollection<ThongTinMatHang>();
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 1", soLuong = 1, donGia = 100 });
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 2", soLuong = 10, donGia = 200 });
+
+            ProductService productService = new ProductService(listFood);
+
+            // Act
+            productService.UpdateThongTinMatHang("Product 1", 5); // First update
+            productService.UpdateThongTinMatHang("Product 1", 10); // Second update
+
+            // Assert
+            ThongTinMatHang updatedProduct1 = listFood[0];
+            Assert.AreEqual(10, updatedProduct1.soLuong); // Ensure the quantity reflects the last update
+            Assert.AreEqual(1000, updatedProduct1.thanhTien); // Ensure the total price reflects the last update
+        }
+
     }
 }
