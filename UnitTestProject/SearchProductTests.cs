@@ -102,6 +102,26 @@ namespace UnitTestProject
             Assert.AreEqual("Green Apple", viewModel.FoodItems[1].Name);
         }
 
+        [TestMethod]
+        public void Search_WithCaseInsensitiveSearchString_ShouldReturnResults()
+        {
+            // Arrange
+            var productService = new ProductService(new ObservableCollection<ThongTinMatHang>());
+            var viewModel = new MenuViewModel();
+            viewModel.FoodItems.Clear();
+            viewModel.FoodItems.Add(new MenuItem { Name = "Apple" });
+            viewModel.FoodItems.Add(new MenuItem { Name = "Banana" });
+            string search = "apple";
+            //string search = "APPLE";
+
+            // Act
+            productService.Search(search, viewModel);
+
+            // Assert
+            Assert.AreEqual(1, viewModel.FoodItems.Count);
+            Assert.AreEqual("Apple", viewModel.FoodItems[0].Name);
+        }
+
         
     }
 }
