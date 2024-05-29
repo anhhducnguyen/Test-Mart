@@ -94,5 +94,25 @@ namespace UnitTestProject
             Assert.AreEqual(100, updatedProduct1.thanhTien); // Total price should remain unchanged
         }
 
+        [TestMethod]
+        public void Test_UpdateThongTinMatHang_LargeQuantity()
+        {
+            // Arrange
+            ObservableCollection<ThongTinMatHang> listFood = new ObservableCollection<ThongTinMatHang>();
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 1", soLuong = 1, donGia = 100 });
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 2", soLuong = 10, donGia = 200 });
+
+            ProductService productService = new ProductService(listFood);
+
+            // Act
+            productService.UpdateThongTinMatHang("Product 2", 1000); // Update to a very large quantity
+
+            // Assert
+            ThongTinMatHang updatedProduct2 = listFood[1];
+            Assert.AreEqual(1000, updatedProduct2.soLuong); // Ensure the quantity is updated correctly
+            Assert.AreEqual(200000, updatedProduct2.thanhTien); // Ensure the total price is updated correctly
+        }
+
+        
     }
 }
