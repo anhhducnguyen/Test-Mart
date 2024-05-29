@@ -133,5 +133,18 @@ namespace UnitTestProject
             Assert.AreEqual(1000, updatedProduct1.thanhTien); // Ensure the total price reflects the last update
         }
 
+        [TestMethod]
+        public void Test_UpdateThongTinMatHang_EmptyList()
+        {
+            // Arrange
+            ObservableCollection<ThongTinMatHang> listFood = new ObservableCollection<ThongTinMatHang>();
+            ProductService productService = new ProductService(listFood);
+
+            // Act
+            productService.UpdateThongTinMatHang("Product 1", 5); // Try to update a product in an empty list
+
+            // Assert
+            Assert.AreEqual(0, listFood.Count); // Ensure the list remains empty
+        }
     }
 }
