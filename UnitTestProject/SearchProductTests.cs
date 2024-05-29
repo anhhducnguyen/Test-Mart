@@ -82,6 +82,26 @@ namespace UnitTestProject
             Assert.AreEqual(0, viewModel.FoodItems.Count);
         }
 
+        [TestMethod]
+        public void Search_WithMultipleMatchingResults_ShouldReturnAllResults()
+        {
+            // Arrange
+            var productService = new ProductService(new ObservableCollection<ThongTinMatHang>());
+            var viewModel = new MenuViewModel();
+            viewModel.FoodItems.Add(new MenuItem { Name = "Apple" });
+            viewModel.FoodItems.Add(new MenuItem { Name = "Green Apple" });
+            viewModel.FoodItems.Add(new MenuItem { Name = "Banana" });
+            string search = "Apple";
+
+            // Act
+            productService.Search(search, viewModel);
+
+            // Assert
+            Assert.AreEqual(2, viewModel.FoodItems.Count);
+            Assert.AreEqual("Apple", viewModel.FoodItems[0].Name);
+            Assert.AreEqual("Green Apple", viewModel.FoodItems[1].Name);
+        }
+
         
     }
 }
