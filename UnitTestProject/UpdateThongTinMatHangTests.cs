@@ -40,6 +40,22 @@ namespace UnitTestProject
             Assert.AreEqual(9000, updatedProduct3.thanhTien);
         }
 
+        [TestMethod]
+        public void Test_UpdateThongTinMatHang_ProductNotFound()
+        {
+            // Arrange
+            ObservableCollection<ThongTinMatHang> listFood = new ObservableCollection<ThongTinMatHang>();
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 1", soLuong = 1, donGia = 100 });
+            ProductService productService = new ProductService(listFood);
+
+            // Act
+            productService.UpdateThongTinMatHang("Product 2", 5); // Product 3 does not exist in the list
+
+            // Assert
+            Assert.AreEqual(1, listFood.Count); // Ensure no new product is added
+            Assert.AreEqual(1, listFood[0].soLuong); // Ensure quantities of existing products remain unchanged
+        }
+
         
     }
 }
