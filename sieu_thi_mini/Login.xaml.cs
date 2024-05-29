@@ -139,9 +139,6 @@ namespace sieu_thi_mini
         {
             public bool ValidateLogin(string username, string password)
             {
-                // Your logic to validate login credentials goes here
-                // For example, querying the database to check if the credentials are valid
-                //SqlConnection Conn = new SqlConnection();
                 string ConnectionString = @"Data Source=LAPTOP-8OU0CA2C\SQLEXPRESS;Initial Catalog=QuanLySieuThi;Integrated Security=True; Connect Timeout=3600";
                 string encodedPassword = EncodeMD5(password);
 
