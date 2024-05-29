@@ -37,7 +37,7 @@ namespace sieu_thi_mini
         public static MaDangNhapService MaDangNhapService { get; } = new MaDangNhapService();
         public static MatKhauService MatKhauService { get; } = new MatKhauService();
 
-        public static string ConnectionString = @"Data Source=DESKTOP-IKSFK82\SQLEXPRESS;Initial Catalog=QuanLySieuThi;Integrated Security=True;";
+        public static string ConnectionString = @"Data Source=LAPTOP-8OU0CA2C\SQLEXPRESS;Initial Catalog=QuanLySieuThi;Integrated Security=True; Connect Timeout=3600";
         //ConnectionString = @"Data Source=DESKTOP-IKSFK82\SQLEXPRESS;Initial Catalog=QuanLyBanHangNhanh;Integrated Security=True;";
 
 
