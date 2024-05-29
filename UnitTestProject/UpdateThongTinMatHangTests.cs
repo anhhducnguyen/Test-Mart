@@ -75,6 +75,24 @@ namespace UnitTestProject
             Assert.AreEqual(0, updatedProduct1.thanhTien); // Total price should also be zero
         }
 
-        
+        [TestMethod]
+        public void Test_UpdateThongTinMatHang_NegativeQuantity()
+        {
+            // Arrange
+            ObservableCollection<ThongTinMatHang> listFood = new ObservableCollection<ThongTinMatHang>();
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 1", soLuong = 1, donGia = 100 });
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 2", soLuong = 10, donGia = 200 });
+
+            ProductService productService = new ProductService(listFood);
+
+            // Act
+            productService.UpdateThongTinMatHang("Product 1", -5); // Attempt to set a negative quantity
+
+            // Assert
+            ThongTinMatHang updatedProduct1 = listFood[0];
+            Assert.AreEqual(1, updatedProduct1.soLuong); // Ensure the quantity is unchanged
+            Assert.AreEqual(100, updatedProduct1.thanhTien); // Total price should remain unchanged
+        }
+
     }
 }
