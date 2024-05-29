@@ -47,6 +47,25 @@ namespace UnitTestProject
             //Assert.AreEqual("BIm Bim", viewModel.FoodItems[0].Name);
         }
 
+        [TestMethod]
+        public void Search_WithMatchingSearchString_ShouldReturnResults()
+        {
+            // Arrange
+            var productService = new ProductService(new ObservableCollection<ThongTinMatHang>());
+            var viewModel = new MenuViewModel();
+            viewModel.FoodItems.Add(new MenuItem { Name = "Apple" });
+            viewModel.FoodItems.Add(new MenuItem { Name = "Banana" });
+            string search = "Apple";
+
+            // Act
+            productService.Search(search, viewModel);
+
+            // Assert
+            Assert.AreEqual(1, viewModel.FoodItems.Count);
+            Assert.AreEqual("Apple", viewModel.FoodItems[0].Name);
+        }
+
+        
     }
 }
 
