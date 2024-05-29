@@ -56,6 +56,25 @@ namespace UnitTestProject
             Assert.AreEqual(1, listFood[0].soLuong); // Ensure quantities of existing products remain unchanged
         }
 
+        [TestMethod]
+        public void Test_UpdateThongTinMatHang_ZeroQuantity()
+        {
+            // Arrange
+            ObservableCollection<ThongTinMatHang> listFood = new ObservableCollection<ThongTinMatHang>();
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 1", soLuong = 1, donGia = 100 });
+            listFood.Add(new ThongTinMatHang { tenSanPham = "Product 2", soLuong = 10, donGia = 200 });
+
+            ProductService productService = new ProductService(listFood);
+
+            // Act
+            productService.UpdateThongTinMatHang("Product 1", 0); // Set quantity to zero
+
+            // Assert
+            ThongTinMatHang updatedProduct1 = listFood[0];
+            Assert.AreEqual(0, updatedProduct1.soLuong); // Ensure the quantity is updated to zero
+            Assert.AreEqual(0, updatedProduct1.thanhTien); // Total price should also be zero
+        }
+
         
     }
 }
