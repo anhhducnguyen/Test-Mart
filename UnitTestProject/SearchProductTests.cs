@@ -159,6 +159,26 @@ namespace UnitTestProject
             Assert.AreEqual("Apple", viewModel.FoodItems[0].Name);
         }
 
+        [TestMethod]
+        public void Search_WithException_ShouldHandleGracefully()
+        {
+            // Arrange
+            var productService = new ProductService(new ObservableCollection<ThongTinMatHang>());
+            var viewModel = new MenuViewModel();
+            viewModel.FoodItems = null; // This will cause a NullReferenceException
+            string search = "Apple";
+
+            // Act & Assert
+            try
+            {
+                productService.Search(search, viewModel);
+                Assert.Fail("Expected exception was not thrown.");
+            }
+            catch (NullReferenceException)
+            {
+                // Exception was thrown as expected
+            }
+        }
         
     }
 }
