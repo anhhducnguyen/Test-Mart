@@ -122,6 +122,24 @@ namespace UnitTestProject
             Assert.AreEqual("Apple", viewModel.FoodItems[0].Name);
         }
 
+        [TestMethod]
+        public void Search_WithSpecialCharacters_ShouldHandleGracefully()
+        {
+            // Arrange
+            var productService = new ProductService(new ObservableCollection<ThongTinMatHang>());
+            var viewModel = new MenuViewModel();
+            viewModel.FoodItems.Clear();
+            viewModel.FoodItems.Add(new MenuItem { Name = "Apple" });
+            viewModel.FoodItems.Add(new MenuItem { Name = "Banana" });
+            string search = "@#!";
+
+            // Act
+            productService.Search(search, viewModel);
+
+            // Assert
+            Assert.AreEqual(0, viewModel.FoodItems.Count);
+        }
+
         
     }
 }
