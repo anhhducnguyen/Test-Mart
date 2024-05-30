@@ -15,7 +15,7 @@ namespace UnitTestProject
         {
             // Arrange
             OrderLogic orderLogic = new OrderLogic();
-            string testSearchText = "HD001"; // Giả sử đây là mã đơn hàng cần tìm
+            string testSearchText = "t"; // Giả sử đây là mã đơn hàng cần tìm
 
             // Act
             // Thực hiện tìm kiếm

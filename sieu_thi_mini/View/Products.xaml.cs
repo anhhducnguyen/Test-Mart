@@ -291,7 +291,7 @@ namespace sieu_thi_mini.View
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
-        {
+        {   
             // Xóa tất cả thông tin trên DataGrid
             selectedItems.Clear();
             selectedFoodItems.Clear();
