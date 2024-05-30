@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using sieu_thi_mini.ViewModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace sieu_thi_mini.View
 {
@@ -284,6 +285,48 @@ namespace sieu_thi_mini.View
                 }
             }
         }
+
+            public class SearchEmployeeTests
+            {
+                private string ConnectionString = @"Data Source=LAPTOP-8OU0CA2C\SQLEXPRESS;Initial Catalog=QuanLySieuThi;Integrated Security=True;";
+
+                public List<string> btSearch_Click(string stringSearch)
+                {
+                    List<string> results = new List<string>();
+
+                    if (string.IsNullOrEmpty(stringSearch))
+                    {
+                        NapDuLieuTuMayChu();
+                    }
+                    else
+                    {
+                        using (SqlConnection Conn = new SqlConnection(ConnectionString))
+                        {
+                            Conn.Open();
+                            string query = "SELECT * FROM tblNhanVien WHERE (LOWER(HoTen) LIKE @search OR MaNhanVien LIKE @search) " +
+                                           "OR (Sdt LIKE @search OR GioiTinh LIKE @search OR DiaChi LIKE @search OR Email LIKE @search ) AND DaXoa = 0";
+                            SqlCommand command = new SqlCommand(query, Conn);
+                            command.Parameters.AddWithValue("@search", "%" + stringSearch.ToLower() + "%");
+
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    results.Add(reader["HoTen"].ToString());
+                                }
+                            }
+                        }
+                    }
+
+                    return results;
+                }
+
+                public void NapDuLieuTuMayChu()
+                {
+                    // Implementation not provided in the original code
+                }
+            }
+
 
     }
 }
