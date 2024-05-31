@@ -5,7 +5,7 @@ using System;
 namespace AutoTest
 {
     [TestClass]
-    public class UnitTest2
+    public class LoginAutoTest
     {
         private WiniumDriver driver;
 

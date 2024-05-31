@@ -269,6 +269,31 @@ namespace sieu_thi_mini
             forgetPassword.ShowDialog();
         }
 
+
+        public class login
+        {
+            public bool ValidateLogin(string username, string password)
+            {
+                // Your logic to validate login credentials goes here
+                // For example, querying the database to check if the credentials are valid
+                //SqlConnection Conn = new SqlConnection();
+                string ConnectionString = @"Data Source=DESKTOP-IKSFK82\SQLEXPRESS;Initial Catalog=QuanLySieuThi;Integrated Security=True;";
+                string encodedPassword = EncodeMD5(password);
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT COUNT(1) FROM tblNhanvien WHERE TenDangNhap=@Username AND MatKhau=@Password";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    cmd.Parameters.AddWithValue("@Password", encodedPassword);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count == 1;
+                }
+            }
+        }
+
     }
 
 }
