@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sieu_thi_mini", "sieu_thi_m
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{B6011229-9E11-4FDA-A3B2-B7B2AEB91724}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest", "AutoTest\AutoTest.csproj", "{D9ABD3FC-ACB8-4256-990F-8FD90B9701B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B6011229-9E11-4FDA-A3B2-B7B2AEB91724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6011229-9E11-4FDA-A3B2-B7B2AEB91724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6011229-9E11-4FDA-A3B2-B7B2AEB91724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9ABD3FC-ACB8-4256-990F-8FD90B9701B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9ABD3FC-ACB8-4256-990F-8FD90B9701B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9ABD3FC-ACB8-4256-990F-8FD90B9701B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9ABD3FC-ACB8-4256-990F-8FD90B9701B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
