@@ -33,7 +33,7 @@ namespace sieu_thi_mini
             txtDiaChi.Text = DiaChi;
             txtEmail.Text = Email;
             txtTenDangNhap.Text = TenDangNhap;
-           
+
             txtNgaySinh.Text = NgaySinh.ToString("dd/MM/yyyy");
         }
 
@@ -65,7 +65,7 @@ namespace sieu_thi_mini
         {
             try
             {
-                
+
                 Conn.ConnectionString = ConnectionString;
                 Conn.Open();
             }
@@ -96,19 +96,21 @@ namespace sieu_thi_mini
             {
                 try
                 {
-                    if (txtMaNhanVien.Text != EmployeesCode)
-                    {
-                        string checkIfExistsQuery = "SELECT COUNT(*) FROM tblNhanVien WHERE MaNhanVien = @EmployeeCode";
-                        SqlCommand checkIfExistsCmd = new SqlCommand(checkIfExistsQuery, Conn);
-                        checkIfExistsCmd.Parameters.AddWithValue("@EmployeeCode", txtMaNhanVien.Text);
-                        int count = Convert.ToInt32(checkIfExistsCmd.ExecuteScalar());
 
-                        if (count > 0)
-                        {
-                            MessageBox.Show("Mã nhân viên đã tồn tại. Vui lòng nhập mã khác.");
-                            return;
-                        }
-                    }
+                    //string checkIfExistsQuery = "SELECT COUNT(*) FROM tblNhanVien WHERE MaNhanVien = @EmployeeCode Or Email = @email Or TenDangNhap = @tendangnhap";
+                    //SqlCommand checkIfExistsCmd = new SqlCommand(checkIfExistsQuery, Conn);
+                    //checkIfExistsCmd.Parameters.AddWithValue("@EmployeeCode", txtMaNhanVien.Text);
+                    //checkIfExistsCmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    //checkIfExistsCmd.Parameters.AddWithValue("@tendangnhap", txtTenDangNhap.Text);
+
+                    //int count = Convert.ToInt32(checkIfExistsCmd.ExecuteScalar());
+
+                    //if (count > 0)
+                    //{
+                    //    MessageBox.Show("Nhân viên đã tồn tại. Vui lòng nhập lại thông tin khác.");
+                    //    return;
+                    //}
+
 
                     string sqlStr =
                                     "UPDATE tblNhanVien SET " +
