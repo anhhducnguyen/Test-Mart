@@ -105,12 +105,13 @@
                         </Grid>
                     </Border>
                 </TabItem>
-                <TabItem Header="Lịch sử kinh doanh" Cursor="Hand" >
+                <TabItem Header="Lịch sử kinh doanh" Uid="tabKinhdoanh" Cursor="Hand" >
 
                     <Border Background="white" CornerRadius="20">
 
                         <Grid >
                             <Button x:Name="btexcel"
+                             Uid="btexcel"
                             Style="{StaticResource allButton}"                           
                             Content="Xuất file"                            
                             
@@ -118,6 +119,7 @@
 
                             </Button>
                             <ComboBox
+                            Uid="month_or_date"
                             materialDesign:ColorZoneAssist.Mode="SecondaryLight"
                             materialDesign:HintAssist.HelperText="Chọn Tháng/Năm"
                             materialDesign:HintAssist.Hint="Tháng/Năm"

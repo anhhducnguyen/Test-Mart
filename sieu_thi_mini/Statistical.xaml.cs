@@ -345,7 +345,7 @@ namespace sieu_thi_mini.View
                 inputSeries.Header = "Tiền nhập hàng";
 
 
-                var excelFileName = @"E:\C#\sieu_thi_mini\sieu_thi_mini\FileExcel\" + name_chart.Text.ToString() + ".xlsx";
+                var excelFileName = @"E:\2ndSemester3rdYear\testt\TestMart\sieu_thi_mini\FileExcel\" + name_chart.Text.ToString() + ".xlsx";
                 var file = new FileInfo(excelFileName);
                 package.SaveAs(file);
             }

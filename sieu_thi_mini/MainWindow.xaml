@@ -93,6 +93,7 @@ DockPanel.Dock="Top" TextAlignment="Center"/>
 
                                 <Button Style="{StaticResource menuButton}"
                                         x:Uid="btnOrder"
+                                        
                                     Command="{Binding OrdersCommand}">
                                     <StackPanel Orientation="Horizontal">
                                         <Icon:PackIconMaterial Kind="OrderBoolAscendingVariant" Style="{StaticResource menuButtonIcon}"/>
@@ -107,12 +108,16 @@ DockPanel.Dock="Top" TextAlignment="Center"/>
                                     </StackPanel>
                                 </Button>
                                 <Button Style="{StaticResource menuButton}"
+                                        Uid="btnThongke"
 Command="{Binding StatisticalCommand}">
                                     <StackPanel Orientation="Horizontal">
                                         <Icon:PackIconMaterial Kind="Finance" Style="{StaticResource menuButtonIcon}"/>
                                         <TextBlock Text="Thống kê"/>
+                                  
                                     </StackPanel>
+                                    
                                 </Button>
+                            
                                 <!--<Button Style="{StaticResource menuButton}"
                                     Command="{Binding SettingCommand}">
                                     <StackPanel Orientation="Horizontal">

@@ -66,6 +66,7 @@
     <Compile Include="ForgetPW.cs" />
     <Compile Include="LoginTest.cs" />
     <Compile Include="SaveOrder.cs" />
+    <Compile Include="ExportFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
