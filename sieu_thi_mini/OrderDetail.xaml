@@ -138,28 +138,36 @@ HorizontalAlignment="Left" Margin="183,172,0,0" TextWrapping="Wrap" VerticalAlig
                 </DataGrid>
             </Border>
             <Button x:Name="btIn" 
-                    Style="{StaticResource allButton}"                            
-                            Content="In hóa đơn"                           
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-BorderThickness="0"
-                            Foreground="White"
-                            FontWeight="Medium"
-                    HorizontalAlignment="Right" Margin="0,10,94,0" VerticalAlignment="Top" Width="79" Click="In_Click" Height="32" Grid.Row="2">
-                
+        Content="In hóa đơn"                           
+        FontSize="12"
+        FontFamily="Montserrat"
+        Cursor="Hand"
+        BorderThickness="0"
+        Foreground="White"
+        FontWeight="Medium"
+        HorizontalAlignment="Right" 
+        Margin="0,10,94,0" 
+        VerticalAlignment="Top" 
+        Width="91" 
+        Click="In_Click" 
+        Height="32" 
+        Grid.Row="2">
             </Button>
             <Button x:Name="btThoat" 
-                    Style="{StaticResource allButton}"                            
-                           Content="Thoát"                          
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            BorderThickness="0"
-                            Foreground="White"
-                            FontWeight="Medium"
-                    HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="65" Click="Thoat_Click" Height="32" Grid.Row="2">
-                
+        Content="Thoát"                          
+        FontSize="12"
+        FontFamily="Montserrat"
+        Cursor="Hand"
+        BorderThickness="0"
+        Foreground="White"
+        FontWeight="Medium"
+        HorizontalAlignment="Right" 
+        Margin="0,10,20,0" 
+        VerticalAlignment="Top" 
+        Width="65" 
+        Click="Thoat_Click" 
+        Height="32" 
+        Grid.Row="2">
             </Button>
             <Label Content="Tổng tiền:"
                

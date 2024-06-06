@@ -11,9 +11,9 @@ namespace AutoTest
 
         [TestInitialize]
         public void Setup()
-        {
+        {   
             DesktopOptions options = new DesktopOptions();
-            options.ApplicationPath = @"E:\2ndSemester3rdYear\testMarts\TestMart\sieu_thi_mini\bin\Debug\sieu_thi_mini.exe"; // Đường dẫn đầy đủ tới ứng dụng của bạn
+            options.ApplicationPath = @"E:\2ndSemester3rdYear\testt\TestMart\sieu_thi_mini\bin\Debug\sieu_thi_mini.exe"; // Đường dẫn đầy đủ tới ứng dụng của bạn
 
             // Khởi động Winium driver
             driver = new WiniumDriver(@"C:\Users\Admin\Desktop\", options);
@@ -41,7 +41,7 @@ namespace AutoTest
             usernameField.SendKeys("admin");
 
             // Tìm ô nhập mật khẩu và nhập mật khẩu
-            var passwordField = driver.FindElementById("pwbPassWor");
+            var passwordField = driver.FindElementById("pwbPassWord");
             Assert.IsNotNull(passwordField, "Không tìm thấy ô nhập mật khẩu.");
             passwordField.SendKeys("1234");
 

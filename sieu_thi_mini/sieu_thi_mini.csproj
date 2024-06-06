@@ -153,6 +153,7 @@
     <Compile Include="OrderDetail.xaml.cs">
       <DependentUpon>OrderDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SaveOrder.cs" />
     <Compile Include="Test\Debug.cs" />
     <Compile Include="Test\debugTest.cs" />
     <Compile Include="Test\test.cs" />
@@ -167,25 +168,25 @@
     <Compile Include="ViewModel\ProductVM.cs" />
     <Compile Include="ViewModel\SettingVM.cs" />
     <Compile Include="ViewModel\StatisticalVM.cs" />
-    <Compile Include="View\Employees.xaml.cs">
+    <Compile Include="Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Home.xaml.cs">
+    <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ImportProducts.xaml.cs">
+    <Compile Include="ImportProducts.xaml.cs">
       <DependentUpon>ImportProducts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Order.xaml.cs">
+    <Compile Include="Order.xaml.cs">
       <DependentUpon>Order.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Products.xaml.cs">
+    <Compile Include="Products.xaml.cs">
       <DependentUpon>Products.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Setting.xaml.cs">
+    <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Statistical.xaml.cs">
+    <Compile Include="Statistical.xaml.cs">
       <DependentUpon>Statistical.xaml</DependentUpon>
     </Compile>
     <Page Include="AddEmployees.xaml">
@@ -252,31 +253,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Employees.xaml">
+    <Page Include="Employees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Home.xaml">
+    <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ImportProducts.xaml">
+    <Page Include="ImportProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Order.xaml">
+    <Page Include="Order.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Products.xaml">
+    <Page Include="Products.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Setting.xaml">
+    <Page Include="Setting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Statistical.xaml">
+    <Page Include="Statistical.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,6 +328,7 @@
   <ItemGroup>
     <Folder Include="FileExcel\" />
     <Folder Include="FilePDF\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

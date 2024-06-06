@@ -79,11 +79,11 @@ namespace sieu_thi_mini
 
             try
             {
-                string pdfPath = @"E:\C#\sieu_thi_mini\sieu_thi_mini\FilePDF\" + txtMaDonHang.Text.ToString() + ".pdf";
+                string pdfPath = @"E:\2ndSemester3rdYear\testt\TestMart\sieu_thi_mini\FilePDF\" + txtMaDonHang.Text.ToString() + ".pdf";
                 PdfWriter pdfWriter = PdfWriter.GetInstance(doc, new FileStream(pdfPath, FileMode.Create));
 
                 // Đường dẫn đến font Unicode
-                string fontPath = @"E:\C#\sieu_thi_mini\packages\MaterialDesignThemes.4.9.0\build\Resources\Roboto\Roboto-Regular.ttf";
+                string fontPath = @"E:\2ndSemester3rdYear\testt\TestMart\packages\MaterialDesignThemes.4.9.0\build\Resources\Roboto\Roboto-Regular.ttf";
 
                 BaseFont unicodeBaseFont = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
                 Font unicodeFont = new Font(unicodeBaseFont, 12);
@@ -158,12 +158,6 @@ namespace sieu_thi_mini
             }
         }
 
-
-
-
-
-
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -206,5 +200,81 @@ namespace sieu_thi_mini
                 DragMove();
             }
         }
+
+        public void CreatePDFInvoice1(string orderCode, string employeeCode, string orderDate, string orderTime, string totalMoney, DataGrid dataGrid)
+        {
+            Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+            try
+            {
+                string pdfPath = @"E:\2ndSemester3rdYear\testt\TestMart\sieu_thi_mini\FilePDF\" + orderCode + ".pdf";
+                PdfWriter pdfWriter = PdfWriter.GetInstance(doc, new FileStream(pdfPath, FileMode.Create));
+
+                string fontPath = @"E:\2ndSemester3rdYear\testt\TestMart\packages\MaterialDesignThemes.4.9.0\build\Resources\Roboto\Roboto-Regular.ttf";
+                BaseFont unicodeBaseFont = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                Font unicodeFont = new Font(unicodeBaseFont, 12);
+
+                doc.Open();
+
+                var paragraph = new Paragraph("Mã hóa đơn: " + orderCode, unicodeFont) { Alignment = Element.ALIGN_CENTER };
+                doc.Add(paragraph);
+
+                var paragraph1 = new Paragraph("Mã nhân viên: " + employeeCode, unicodeFont) { Alignment = Element.ALIGN_CENTER };
+                doc.Add(paragraph1);
+
+                var paragraph2 = new Paragraph("Ngày bán: " + orderDate, unicodeFont) { Alignment = Element.ALIGN_CENTER };
+                doc.Add(paragraph2);
+
+                var paragraph3 = new Paragraph("Giờ bán: " + orderTime, unicodeFont) { Alignment = Element.ALIGN_CENTER };
+                doc.Add(paragraph3);
+
+                doc.Add(Chunk.NEWLINE);
+
+                if (dataGrid == null || dataGrid.Items.Count == 0 || dataGrid.Columns.Count == 0)
+                {
+                    throw new Exception("Không có dữ liệu để tạo hóa đơn.");
+                }
+
+                PdfPTable pdfTable = new PdfPTable(dataGrid.Columns.Count)
+                {
+                    DefaultCell = { Padding = 3 },
+                    WidthPercentage = 100,
+                    HorizontalAlignment = Element.ALIGN_LEFT
+                };
+
+                foreach (DataGridColumn column in dataGrid.Columns)
+                {
+                    pdfTable.AddCell(new PdfPCell(new Phrase(column.Header.ToString(), unicodeFont)));
+                }
+
+                foreach (var item in dataGrid.Items)
+                {
+                    foreach (var column in dataGrid.Columns)
+                    {
+                        var binding = (column as DataGridBoundColumn).Binding as System.Windows.Data.Binding;
+                        string propertyName = binding.Path.Path;
+
+                        var propertyInfo = item.GetType().GetProperty(propertyName);
+                        var cellValue = propertyInfo.GetValue(item, null);
+
+                        pdfTable.AddCell(new PdfPCell(new Phrase(cellValue?.ToString(), unicodeFont)));
+                    }
+                }
+
+                doc.Add(pdfTable);
+                doc.Add(Chunk.NEWLINE);
+                var paragraph4 = new Paragraph("Tổng tiền hóa đơn: " + totalMoney, unicodeFont) { Alignment = Element.ALIGN_RIGHT };
+                doc.Add(paragraph4);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                doc.Close();
+            }
+        }
+
+
     }
 }

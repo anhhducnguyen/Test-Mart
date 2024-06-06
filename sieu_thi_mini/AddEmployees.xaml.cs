@@ -71,6 +71,20 @@ namespace sieu_thi_mini
             {
                 try
                 {
+                    string checkIfExistsQuery = "SELECT COUNT(*) FROM tblNhanVien WHERE MaNhanVien = @EmployeeCode Or Email = @email Or TenDangNhap = @tendangnhap";
+                    SqlCommand checkIfExistsCmd = new SqlCommand(checkIfExistsQuery, Conn);
+                    checkIfExistsCmd.Parameters.AddWithValue("@EmployeeCode", txtMaNhanVien.Text);
+                    checkIfExistsCmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    checkIfExistsCmd.Parameters.AddWithValue("@tendangnhap", txtTenDangNhap.Text);
+
+                    int count = Convert.ToInt32(checkIfExistsCmd.ExecuteScalar());
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Nhân viên đã tồn tại. Vui lòng nhập lại thông tin khác.");
+                        return;
+                    }
+
                     sqlStr = "Insert Into tblNhanVien (MaNhanVien,HoTen,GioiTinh,NgaySinh,SDT,DiaChi,Email,TenDangNhap,MatKhau) " +
                 "values (@ma,@ten,@gioitinh,@ngaysinh,@sđt,@diachi,@email,@tk,@mk)";
                     SqlCommand cmd = new SqlCommand(sqlStr, Conn);
@@ -99,7 +113,7 @@ namespace sieu_thi_mini
         {
             try
             {
-                
+
                 Conn.ConnectionString = ConnectionString;
                 Conn.Open();
                 string sql = "SELECT TOP 1 MaNhanVien FROM tblNhanVien ORDER BY MaNhanVien DESC";

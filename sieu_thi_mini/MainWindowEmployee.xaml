@@ -58,7 +58,7 @@
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
 
                             <TextBlock Text="Bim Bim Mart" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
-                               DockPanel.Dock="Top" TextAlignment="Center"/>
+DockPanel.Dock="Top" TextAlignment="Center"/>
 
                             <Separator Margin="25 15" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
 
@@ -81,6 +81,7 @@
                                 </Button>-->
 
                                 <Button Style="{StaticResource menuButton}" 
+                                        x:Uid="btnSanPham"
                                     Command="{Binding ProductsCommand}">
                                     <StackPanel Orientation="Horizontal">
                                         <Icon:PackIconMaterial Kind="Sack" Style="{StaticResource menuButtonIcon}"/>
@@ -89,6 +90,7 @@
                                 </Button>
 
                                 <Button Style="{StaticResource menuButton}"
+                                        x:Uid="btnOrder"
                                     Command="{Binding OrdersCommand}">
                                     <StackPanel Orientation="Horizontal">
                                         <Icon:PackIconMaterial Kind="OrderBoolAscendingVariant" Style="{StaticResource menuButtonIcon}"/>
@@ -160,8 +162,8 @@
 
                     <TextBox x:Name="txtMaNV" IsReadOnly="true" TextAlignment="Right" BorderThickness="0" Text="NV001" HorizontalAlignment="Right" Margin="0,0,55,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="36" FontSize="11" Height="20"/>
                     <TextBox x:Name="txtTenNV" IsReadOnly="true" TextAlignment="Right" BorderThickness="0" HorizontalAlignment="Right" Margin="0,0,55,0" TextWrapping="Wrap" Text="VŨ MINH PHONG" VerticalAlignment="Bottom" Width="90" Height="23" FontSize="11"/>
-                   
-                    
+
+
                 </Grid>
             </Grid>
 

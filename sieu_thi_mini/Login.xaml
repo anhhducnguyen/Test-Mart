@@ -180,7 +180,7 @@ Style="{StaticResource MaterialDesignOutlinedTextBox}">
 
                 <PasswordBox
                         x:Name="pwbPassWord"
-                        x:Uid="pwbPassWor"
+                        x:Uid="pwbPassWord"
                         Width="300"
                         Margin="0 20 0 0"
                         materialDesign:HintAssist.Hint="Mật khẩu"

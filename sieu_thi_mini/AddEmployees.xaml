@@ -47,7 +47,7 @@
                                        FontWeight="{TemplateBinding FontWeight}"
                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       Visibility="Collapsed"
+Visibility="Collapsed"
 Foreground="{TemplateBinding Foreground}"
                                        Padding="{TemplateBinding Padding}"/>
                             </Grid>
@@ -82,50 +82,51 @@ Foreground="{TemplateBinding Foreground}"
                        FontSize="15"
                        FontFamily="Montserrat" Margin="20,60,0,0"
                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtMaNhanVien" Margin="150,50,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Mã Nhân Viên" />
+            <TextBox x:Uid="txtMaNhanVien" x:Name="txtMaNhanVien" Margin="150,50,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Mã Nhân Viên" />
             <TextBlock Text="Tên Nhân Viên"
                        Foreground="White"
                        FontSize="15"
                        FontFamily="Montserrat" Margin="20,130,0,0"
                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtTenNhanVien" Margin="150,120,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Tên Nhân Viên" />
+            <TextBox x:Uid="txtTenNhanVien" x:Name="txtTenNhanVien" Margin="150,120,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Tên Nhân Viên" />
             <TextBlock Text="Giới Tính"
                        Foreground="White"
                        FontSize="15"
                        FontFamily="Montserrat" Margin="20,200,0,0"
                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtGioiTinh" Margin="150,190,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Giới Tính" />
+            <TextBox x:Uid="txtGioiTinh" x:Name="txtGioiTinh" Margin="150,190,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Giới Tính" />
             <TextBlock Text="Tên Đăng Nhập"
                        Foreground="White"
                        FontSize="15"
                        FontFamily="Montserrat" Margin="20,270,0,0"
                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtTenDangNhap" Margin="150,260,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Tên Đăng Nhập" />
+            <TextBox x:Uid="txtTenDangNhap" x:Name="txtTenDangNhap" Margin="150,260,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Tên Đăng Nhập" />
             <TextBlock Text="Số Điện Thoại"
                        Foreground="White"
 FontSize="15"
                        FontFamily="Montserrat" Margin="400,60,0,0"
                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtSoDienThoai" Margin="530,50,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Số Điện Thoại" />
+            <TextBox x:Uid="txtSoDienThoai" x:Name="txtSoDienThoai" Margin="530,50,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Số Điện Thoại" />
             <TextBlock Text="Địa Chỉ"
                        Foreground="White"
                        FontSize="15"
                        FontFamily="Montserrat" Margin="400,130,0,0"
                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtDiaChi" Margin="530,120,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Địa Chỉ"/>
+            <TextBox x:Uid="txtDiaChi" x:Name="txtDiaChi" Margin="530,120,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Địa Chỉ"/>
             <TextBlock Text="Email"
                        Foreground="White"
                        FontSize="15"
                        FontFamily="Montserrat" Margin="400,200,0,0"
                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtEmail" Margin="530,190,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Email" />
+            <TextBox x:Uid="txtEmail" x:Name="txtEmail" Margin="530,190,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Email" />
             <TextBlock Text="Mật Khẩu"
                        Foreground="White"
                        FontSize="15"
                        FontFamily="Montserrat" Margin="400,270,0,0"
                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtMatKhau" Margin="530,260,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Mật Khẩu" />
-            <Button         x:Name="btSave" Click="btSave_Click"            
+            <TextBox x:Uid="txtMatKhau" x:Name="txtMatKhau" Margin="530,260,0,0" Style="{DynamicResource TextBoxStyle}" Tag="Mật Khẩu" />
+            <Button         x:Name="btSave" Click="btSave_Click"     
+                            x:Uid="btSave"
                             Content="Lưu"                            
                             FontSize="15"
                             FontFamily="Montserrat"
@@ -194,10 +195,10 @@ FontSize="15"
                 FontFamily="Montserrat" Margin="20,347,0,0"
                 VerticalAlignment="Top" HorizontalAlignment="Left"/>
             <Border Height="40" CornerRadius="5" VerticalAlignment="Top" Margin="150,334,0,0" Background="white" Width="200" HorizontalAlignment="Left" BorderBrush="blue" BorderThickness="2" >
-                <DatePicker Height="40"  Name="txtNgaySinh"  HorizontalAlignment="Center" Width="180" 
+                <DatePicker Height="40" Uid="txtNgaySinh"  Name="txtNgaySinh"  HorizontalAlignment="Center" Width="180" 
                     Background="Transparent" Foreground="Black" 
-                    BorderBrush="#707070" BorderThickness="1" 
-                    SelectedDateFormat="Short" VerticalAlignment="Top" />
+                    BorderBrush="#707070" BorderThickness="1"
+SelectedDateFormat="Short" VerticalAlignment="Top" />
             </Border>
 
 

@@ -186,5 +186,112 @@ namespace sieu_thi_mini
         {
             this.Close();
         }
+
+        public class AddProductTests
+        {
+            public void btSave_Click(
+                        string maSanPham,
+                        string tenSanPham,
+                        string phanLoai,
+                        string donVi,
+                        int soLuong,
+                        float giaBan,
+                        DateTime hsd,
+                        BitmapImage image,
+                        float giaNhap,
+                        DateTime ngayNhap,
+                        SqlConnection conn)
+            {
+                // Chuyển đổi ảnh sang mảng byte
+                byte[] imageData;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    BitmapEncoder encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(image));
+                    encoder.Save(ms);
+                    imageData = ms.ToArray();
+                }
+
+                string insertSanPhamQuery = "INSERT INTO tblSanPham (MaSanPham, TenSanPham, PhanLoai, DonVi, SoLuong, GiaBan, HSD, Img) " +
+                "VALUES (@MaSanPham, @TenSanPham, @PhanLoai, @DonVi, @SoLuong, @GiaBan, @HSD, @Img)";
+
+                using (SqlCommand cmdSanPham = new SqlCommand(insertSanPhamQuery, conn))
+                {
+                    cmdSanPham.Parameters.AddWithValue("@MaSanPham", maSanPham);
+                    cmdSanPham.Parameters.AddWithValue("@TenSanPham", tenSanPham);
+                    cmdSanPham.Parameters.AddWithValue("@PhanLoai", phanLoai);
+                    cmdSanPham.Parameters.AddWithValue("@DonVi", donVi);
+                    cmdSanPham.Parameters.AddWithValue("@SoLuong", soLuong);
+                    cmdSanPham.Parameters.AddWithValue("@GiaBan", giaBan);
+                    cmdSanPham.Parameters.AddWithValue("@HSD", hsd);
+                    cmdSanPham.Parameters.Add("@Img", SqlDbType.Image, imageData.Length).Value = imageData;
+                    cmdSanPham.ExecuteNonQuery();
+                }
+
+                // Thực hiện truy vấn SQL INSERT cho bảng tblNhapHang
+                string insertNhapHangQuery = "INSERT INTO tblNhapHang (MaNhapHang, MaSanPham, TenSanPham, SoLuongNhap, GiaNhap, NgayNhap, HanSuDung) " +
+                    "VALUES (@MaNhapHang, @MaSanPham, @TenSanPham, @SoLuongNhap, @GiaNhap, @NgayNhap, @HSD)";
+
+                string maNhapHang = GenerateNewMaNhapHang(conn);
+
+                using (SqlCommand cmdNhapHang = new SqlCommand(insertNhapHangQuery, conn))
+                {
+                    cmdNhapHang.Parameters.AddWithValue("@MaNhapHang", maNhapHang);
+                    cmdNhapHang.Parameters.AddWithValue("@MaSanPham", maSanPham);
+                    cmdNhapHang.Parameters.AddWithValue("@TenSanPham", tenSanPham);
+                    cmdNhapHang.Parameters.AddWithValue("@SoLuongNhap", soLuong);
+                    cmdNhapHang.Parameters.AddWithValue("@GiaNhap", giaNhap);
+                    cmdNhapHang.Parameters.AddWithValue("@NgayNhap", ngayNhap);
+                    cmdNhapHang.Parameters.AddWithValue("@HSD", hsd);
+                    cmdNhapHang.ExecuteNonQuery();
+                }
+
+                string newMaSanPham = GenerateNewMaSanPham(conn);
+                // This would ideally update the relevant TextBox or return this value to the calling method
+                // Example: txtMaSanPham.Text = newMaSanPham;
+
+                // Assuming defaulApp() resets form fields or similar, ensure it is called as needed in your context
+                // defaulApp();
+            }
+
+            private string GenerateNewMaNhapHang(SqlConnection conn)
+            {
+                string sql = "SELECT TOP 1 MaNhapHang FROM tblNhapHang ORDER BY MaNhapHang DESC";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    string lastMaNhapHang = (string)cmd.ExecuteScalar();
+                    if (lastMaNhapHang != null)
+                    {
+                        int lastSnh = int.Parse(lastMaNhapHang.Substring(2));
+                        int newSnh = lastSnh + 1;
+                        return "NH" + newSnh.ToString("D3");
+                    }
+                    else
+                    {
+                        return "NH001"; // Default value if no records exist
+                    }
+                }
+            }
+
+            private string GenerateNewMaSanPham(SqlConnection conn)
+            {
+                string sql1 = "SELECT TOP 1 MaSanPham FROM tblSanPham ORDER BY MaSanPham DESC";
+                using (SqlCommand cmd1 = new SqlCommand(sql1, conn))
+                {
+                    string lastMaSanPham = (string)cmd1.ExecuteScalar();
+                    if (lastMaSanPham != null)
+                    {
+                        int lastStt = int.Parse(lastMaSanPham.Substring(2));
+                        int newStt = lastStt + 1;
+                        return "SP" + newStt.ToString("D3");
+                    }
+                    else
+                    {
+                        return "SP001"; // Default value if no records exist
+                    }
+                }
+            }
+
+        }
     }
 }
