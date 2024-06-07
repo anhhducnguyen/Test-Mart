@@ -108,3 +108,7 @@ E:\2ndSemester3rdYear\testt\TestMart\UnitTestProject\obj\Debug\UnitTestProject.c
 E:\2ndSemester3rdYear\testt\TestMart\UnitTestProject\obj\Debug\UnitTestProject.csproj.CopyComplete
 E:\2ndSemester3rdYear\testt\TestMart\UnitTestProject\obj\Debug\UnitTestProject.dll
 E:\2ndSemester3rdYear\testt\TestMart\UnitTestProject\obj\Debug\UnitTestProject.pdb
+D:\Github\Đánh giá và kiểm định\TestMart\UnitTestProject\obj\Debug\UnitTestProject.csproj.AssemblyReference.cache
+D:\Github\Đánh giá và kiểm định\TestMart\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache
+D:\Github\Đánh giá và kiểm định\TestMart\UnitTestProject\obj\Debug\UnitTestProject.dll
+D:\Github\Đánh giá và kiểm định\TestMart\UnitTestProject\obj\Debug\UnitTestProject.pdb

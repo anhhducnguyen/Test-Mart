@@ -373,3 +373,5 @@ E:\2ndSemester3rdYear\testt\TestMart\sieu_thi_mini\obj\Debug\Order.baml
 E:\2ndSemester3rdYear\testt\TestMart\sieu_thi_mini\obj\Debug\Products.baml
 E:\2ndSemester3rdYear\testt\TestMart\sieu_thi_mini\obj\Debug\Setting.baml
 E:\2ndSemester3rdYear\testt\TestMart\sieu_thi_mini\obj\Debug\Statistical.baml
+D:\Github\Đánh giá và kiểm định\TestMart\sieu_thi_mini\obj\Debug\sieu_thi_mini.exe
+D:\Github\Đánh giá và kiểm định\TestMart\sieu_thi_mini\obj\Debug\sieu_thi_mini.pdb
