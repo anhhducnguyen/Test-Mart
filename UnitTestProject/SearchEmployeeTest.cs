@@ -129,10 +129,10 @@ namespace UnitTestProject
         {
             var searchTest = new SearchEmployeeTests();
 
-            // Search with special characters
+            // Search with special characterss
             List<string> results = searchTest.btSearch_Click("@#$%");
 
-            // Assert that all results contain the special characters
+            // Assert that all results contain the special characterss
             foreach (string result in results)
             {
                 Assert.IsTrue(result.Contains("@#$%"), "Expected all results to contain '@#$%'.");
