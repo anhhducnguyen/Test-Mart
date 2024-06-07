@@ -16,10 +16,10 @@ namespace UnitTestProject
         {
             var searchTest = new SearchEmployeeTests();
 
-            // Search for an existing employee
+            // Search for an existing employees
             List<string> results = searchTest.btSearch_Click("Trần Duy Bim");
 
-            // Assert that 'Trần Duy Bim' is found in the database
+            // Assert that 'Trần Duy Bim' is found in the databases
             Assert.IsTrue(results.Contains("Trần Duy Bim"), "Expected to find 'Trần Duy Bim' in the database.");
         }
 
@@ -28,10 +28,10 @@ namespace UnitTestProject
         {
             var searchTest = new SearchEmployeeTests();
 
-            // Search for an existing employee
+            // Search for an existing employees
             List<string> results = searchTest.btSearch_Click("trần duy bim");
 
-            // Assert that 'Trần Duy Bim' is found in the database
+            // Assert that 'Trần Duy Bim' is found in the databases
             Assert.IsTrue(results.Contains("Trần Duy Bim"), "Expected to find 'Trần Duy Bim' in the database.");
         }
 
@@ -40,10 +40,10 @@ namespace UnitTestProject
         {
             var searchTest = new SearchEmployeeTests();
 
-            // Search for an existing employee
+            // Search for an existing employees
             List<string> results = searchTest.btSearch_Click("TRẦN DUY BIM");
 
-            // Assert that 'Trần Duy Bim' is found in the database
+            // Assert that 'Trần Duy Bim' is found in the databases
             Assert.IsTrue(results.Contains("Trần Duy Bim"), "Expected to find 'Trần Duy Bim' in the database.");
         }
 
