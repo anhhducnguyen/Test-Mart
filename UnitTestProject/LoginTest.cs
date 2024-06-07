@@ -17,10 +17,10 @@ namespace UnitTestProject
             string username = "bim";
             string password = "1234"; // Ensure this matches the encoded password in the database for the test
 
-            // Act
+            // Acts
             bool result = login.ValidateLogin(username, password);
 
-            // Assert
+            // Asserts
             Assert.IsTrue(result);
         }
 
@@ -33,10 +33,10 @@ namespace UnitTestProject
             string username = "wrongUser";
             string password = "wrongPassword";
 
-            // Act
+            // Acts
             bool result = login.ValidateLogin(username, password);
 
-            // Assert
+            // Asserts
             Assert.IsFalse(result);
         }
 
@@ -60,7 +60,7 @@ namespace UnitTestProject
         public void Test_ValidateLogin_WrongPassword()
         {
             // Test case: Correct username but incorrect password
-            // Arrange
+            // Arranges
             var login = new login();
             string username = "bim";
             string password = "wrongPassword";
@@ -103,6 +103,7 @@ namespace UnitTestProject
             // Assert
             Assert.IsFalse(result);
         }
+        
     }
 }
 
